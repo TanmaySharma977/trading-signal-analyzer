@@ -1,0 +1,34 @@
+app:
+  name: "Trading Signal Analyzer"
+  version: "1.0.0"
+  debug: true
+
+market_data:
+  default_source: "yfinance"
+  default_period: "3mo"
+  default_interval: "1d"
+  nse_suffix: ".NS"
+  bse_suffix: ".BO"
+
+news:
+  source: "newsapi"
+  max_articles: 10
+  lookback_days: 3
+
+sentiment:
+  model: "finbert"
+  fallback: "vader"
+  positive_threshold: 0.6
+  negative_threshold: -0.6
+
+patterns:
+  min_confidence: 0.6
+
+decision:
+  engine: "rule_based"
+  buy_threshold: 0.5
+  sell_threshold: -0.5
+
+backtesting:
+  initial_capital: 100000
+  commission_pct: 0.001
